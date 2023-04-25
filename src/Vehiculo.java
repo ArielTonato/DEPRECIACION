@@ -1,11 +1,10 @@
 public class Vehiculo {
     private String marca;
-    private String color;
+
     private double precio;
 
-    public Vehiculo(String marca, String color, double precio) {
+    public Vehiculo(String marca, double precio) {
         this.marca = marca;
-        this.color = color;
         this.precio = precio;
     }
 
@@ -13,9 +12,6 @@ public class Vehiculo {
         return marca;
     }
 
-    public String getColor() {
-        return color;
-    }
 
     public double getPrecio() {
         return precio;
