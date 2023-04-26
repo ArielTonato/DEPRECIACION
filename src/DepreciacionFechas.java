@@ -27,6 +27,4 @@ public class DepreciacionFechas {
         Period meses = Period.between(this.fechaCompra , this.fechaDepreciacion);
         return meses.getMonths();
     }
-
-
 }

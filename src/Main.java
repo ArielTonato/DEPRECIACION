@@ -4,7 +4,6 @@ import java.util.Scanner;
 import static Controles.Controles.*;
 
 public class Main {
-    static GestorDepreciacion gestorDepreciacion;
     static Scanner ingreso = new Scanner(System.in);
     static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     public static void main(String[] args) {

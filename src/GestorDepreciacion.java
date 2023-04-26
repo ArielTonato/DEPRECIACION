@@ -15,31 +15,25 @@ public class GestorDepreciacion {
         return getValorResidual()*this.depreciacionFechas.getAnios()*0.20+
                 getValorResidual()*this.depreciacionFechas.getMeses()*0.0166;
     }
-    public double getValorNeto(){
-        return this.vehiculo.getPrecio()*0.1;
-    }
 
     public double getValor(){
-        if(this.depreciacionFechas.getAnios() > 0 || this.depreciacionFechas.getMeses() > 0){
+        if( this.getValorDepreciacion() == 0){
+            System.out.println(" Su auto aun no se ha depreciado ");
+            return this.vehiculo.getPrecio();
+        }else if (this.getValorDepreciacion() >= this.getValorResidual()){
+            System.out.println(" El auto se ha depreciado por completo su valor neto es: ");
+            return this.vehiculo.getPrecio()*0.1;
+        }else if (this.depreciacionFechas.getAnios() > 0 || this.depreciacionFechas.getMeses() > 0 ){
+            System.out.print(" El valor total del auto es: ");
             return getValorResidual() - getValorDepreciacion();
-        }else {
-            return -1;
         }
+        return -1;
     }
-
-    public double getValorTotal(){
-        if (this.getValor() > 0){
-            return this.getValor();
-        }
-        return getValorNeto();
-    }
-
-
 
     public void prueba(){
-        System.out.println("Valor Inicial del auto "+
-                this.vehiculo.getPrecio()+" Su auto "+ this.vehiculo.getMarca()+" se ha depreciado un: "+getValorDepreciacion()
-                +" ahora vale "+getValorTotal());
+        System.out.println("Valor actual del coche: "+this.getValorResidual());
+        System.out.println("El vehiculo se ha depreciado: "+this.getValorDepreciacion());
+        System.out.println(getValor());
     }
 
 }
