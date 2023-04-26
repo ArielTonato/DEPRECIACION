@@ -8,11 +8,6 @@ public class Vehiculo {
         this.precio = precio;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-
     public double getPrecio() {
         return precio;
     }

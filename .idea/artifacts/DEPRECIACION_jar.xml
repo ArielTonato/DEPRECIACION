@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DEPRECIACION:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DEPRECIACION_jar</output-path>
+    <root id="archive" name="DEPRECIACION.jar">
+      <element id="module-output" name="DEPRECIACION" />
+    </root>
+  </artifact>
+</component>

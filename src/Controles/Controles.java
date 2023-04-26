@@ -27,6 +27,7 @@ public class Controles {
             String fechaNuevaStr = ingreso.next();
             return fechaMayor(fechaNuevaStr, fmt);
         }
+
     }
 
 
@@ -62,11 +63,23 @@ public class Controles {
                 precio = ingreso.nextDouble();
                 entradaValida = true;
             } catch (InputMismatchException e) {
-                System.out.println("ERROR: INGRESE SOLO NUMEROS ENTEROS O DECIMALES");
+                System.out.println("ERROR: INGRESE SOLO NUMEROS ENTEROS O DECIMALES SEPARADOS POR UNA COMA");
                 ingreso.next();
             }
         } while (!entradaValida || precio < 0);
         return precio;
+    }
+
+    public static String opcion(){
+        String opcion;
+        do {
+            System.out.println("Desea calcular la depreciacion de nuevo S/N: ");
+            opcion = ingreso.next().toUpperCase();
+            if (!(opcion.equals("S") || opcion.equals("N"))){
+                System.out.println("INGRESE SOLO S/N");
+            }
+        }while (!(opcion.equals("S") || opcion.equals("N")));
+        return opcion;
     }
 
 }

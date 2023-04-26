@@ -12,22 +12,25 @@ public class Main {
 
     public static void ingresos(){
         GestorDepreciacion depreciacion;
+        do {
+            System.out.println("Marca del vehiculo: ");
+            String marca = ingreso.next();
+            double precio = controlNumeros();
+            System.out.println("Ingrese la fecha de compra de su vehiculo Dias/Meses/Años: ");
+            String fecha = ingreso.next();
+            LocalDate fechaCompra = fechaMayor(fecha,fmt);
+            fecha = fechaCompra.format(fmt);
+            System.out.println("Ingrese la fecha a depreciar Dias/Meses/Años: ");
+            String fecha2 = ingreso.next();
+            LocalDate fechaDepreciar = controlFechas(fecha,fecha2,fmt);
 
-        System.out.println("Marca del vehiculo: ");
-        String marca = ingreso.next();
-        double precio = controlNumeros();
-        System.out.println("Ingrese la fecha de compra de su vehiculo Dias/Meses/Años: ");
-        String fecha = ingreso.next();
-        LocalDate fechaCompra = fechaMayor(fecha,fmt);
-        fecha = fechaCompra.format(fmt);
-        System.out.println("Ingrese la fecha a depreciar Dias/Meses/Años: ");
-        String fecha2 = ingreso.next();
-        LocalDate fechaDepreciar = controlFechas(fecha,fecha2,fmt);
+            depreciacion = new GestorDepreciacion(new Vehiculo(marca,precio),
+                    new DepreciacionFechas(fechaCompra,fechaDepreciar));
 
-        depreciacion = new GestorDepreciacion(new Vehiculo(marca,precio),
-                new DepreciacionFechas(fechaCompra,fechaDepreciar));
+            depreciacion.mostrarDatos();
+        }while (!opcion().equals("N"));
 
-        depreciacion.prueba();
 
     }
+
 }
